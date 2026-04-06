@@ -1,0 +1,29 @@
+.teacher-dashboard .teacher-dashboard-heading{
+    font-size: 2.5rem;
+    color: rgb(255, 0, 136);
+    margin: 15px;
+}
+
+.teacher-features{
+    display: flex;
+    gap: 35px;
+    justify-content: center;
+    padding: 30px;
+}
+.teacher-features .teacher-feature{
+    padding: 30px;
+    border-radius: 20px;
+    width: 350px;
+    transition-duration: 0.5s;
+    cursor: pointer;
+
+}
+.teacher-features .teacher-feature:hover{
+    transform: translateY(-10px);
+}
+.teacher-feature h2{
+    font-size: 2.5rem;
+}
+.teacher-feature p{
+    font-size: 20px;
+}

@@ -1,0 +1,47 @@
+.create-classroom-heading{
+    text-align: center;
+    color: rgb(255, 0, 136);
+    margin-top: 20px;
+    font-size: 2.5rem;
+}
+.input-sections{
+    padding: 30px;
+}
+.input-section{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin: 20px 10px;
+}
+
+.input-section .input-tag{
+    width: 400px;
+    padding:3px ;
+    padding-left: 2px;
+    outline: none;
+    border: 1px  rgb(255, 0, 136) solid ;
+    font-size: 1.2rem;
+    color: rgb(255, 0, 136);
+    margin-top: 3px;
+}
+.input-section label{
+    font-size: 1.2rem;
+    color: rgb(255, 0,136);
+}
+
+.create-button-heading{
+    padding: 10px 15px;
+    color: white ;
+    border: none;
+    background-color: blue;
+    font-size: 1.0rem;
+    font-weight:bold ;
+    border-radius: 35px;
+    margin-left: 45%;
+    cursor: pointer;
+}
+.loader{
+    margin-left: 45%;
+    scale: 0.5;
+}
+

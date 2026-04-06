@@ -1,0 +1,30 @@
+.role-section .role-heading{
+    font-size: 2.5rem;
+    color: rgb(255, 0, 136);
+    text-align: center;
+    margin-top: 30px;
+}
+
+.role-section .roles{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+.role-section .roles p{
+    padding: 100px;
+    font-size: 20px;
+    background-color: gray;
+    color: white;
+    cursor: pointer;
+}
+.role-submit{
+    padding: 7px 15px;
+    background-color:rgb(255, 0, 136) ;
+    color: white;
+    border: none;
+    font-size: 20px;
+    margin-top: 20px;
+    margin-left: 47%;
+    border-radius: 20px;
+    cursor: pointer;
+}

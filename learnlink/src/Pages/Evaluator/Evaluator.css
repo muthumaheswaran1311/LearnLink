@@ -1,0 +1,63 @@
+.evaluator-section{
+    background-color: rgb(255,0,136);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top:50px ;
+    padding-bottom: 20px;
+}
+.evaluator-heading{
+    text-align: center;
+}
+
+.evaluate-input{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    
+}
+.file-label{
+    background-color: white;
+    padding: 10px;
+    cursor: pointer;
+    font-weight:bold ;
+    border-radius: 20px;
+}
+.response-section{
+    background-color: white;
+    height: fit-content;
+    width: 700px;
+    padding: 10px;
+    margin-top:20px ;
+}
+.no-response{
+    color: red;
+    text-align: center;
+}
+.response{
+    color: black;
+   
+}
+.not-selected{
+    margin-left: 10px; 
+    background-color: rgb(255, 255, 255);
+    padding: 10px;
+    cursor: pointer;
+}
+.selected{
+    margin-left: 10px; 
+    background-color: green;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.evaluation-button{
+    padding: 10px 15px;
+    color: rgb(0, 0, 0) ;
+    border: none;
+    background-color: rgb(255, 255, 255);
+    font-size: 1.0rem;
+    font-weight:bold ;
+    border-radius: 35px;
+    cursor: pointer;
+}

@@ -1,0 +1,39 @@
+.quiz-container {
+  width: 97vw;
+  padding: 20px;
+  background-color: rgb(255, 0, 136);
+}
+
+.question-card {
+  background: #f5f5f5;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+.option {
+  padding: 10px;
+  margin-top: 10px;
+  background: #ddd;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.option:hover {
+  background: #ccc;
+}
+
+.option.selected {
+  background: #4caf50;
+  color: white;
+}
+
+.submit-btn {
+  padding: 12px 20px;
+  background: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+}

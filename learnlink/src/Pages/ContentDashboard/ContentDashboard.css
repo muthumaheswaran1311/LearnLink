@@ -1,0 +1,30 @@
+.content-dashboard .content-dashboard-heading{
+    font-size: 2.5rem;
+    color: rgb(255, 0, 136);
+    margin: 15px;
+}
+
+.content-features{
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    justify-content: start;
+    padding: 10px 100px;
+}
+.content-features .content-feature{
+    padding: 30px;
+    border-radius: 20px;
+    width: 350px;
+    transition-duration: 0.5s;
+    cursor: pointer;
+
+}
+.content-features .content-feature:hover{
+    transform: translateY(-10px);
+}
+.content-feature h2{
+    font-size: 2.5rem;
+}
+.content-feature p{
+    font-size: 20px;
+}

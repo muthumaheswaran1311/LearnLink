@@ -1,0 +1,79 @@
+.upload-section{
+    position: absolute;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    height: 600px;
+    width: 600px;
+    top:13%;
+    left: 28%;
+}
+.close-icon{
+    font-size: 1.2rem;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: rgb(255, 0, 136);
+    cursor: pointer;
+}
+.upload-component-heading{
+    text-align: center;
+    color: rgb(255, 0, 136) ;
+}
+.cloud-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.cloud-icon{
+    font-size: 6.5rem;
+    color: rgb(255, 0, 136);
+    cursor: pointer;
+}
+.input-sections{
+    margin-left: 30px;
+}
+.input-section{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin: 20px 10px;
+}
+
+.input-section .input-tag{
+    width: 400px;
+    padding:3px ;
+    padding-left: 2px;
+    outline: none;
+    border: 1px  rgb(255, 0, 136) solid ;
+    font-size: 1.2rem;
+    color: rgb(255, 0, 136);
+    margin-top: 3px;
+}
+.input-section label{
+    font-size: 1.2rem;
+    color: rgb(255, 0,136);
+}
+.upload-button-heading{
+    padding: 10px 15px;
+    color: white ;
+    border: none;
+    background-color: blue;
+    font-size: 1.0rem;
+    font-weight:bold ;
+    border-radius: 35px;
+    margin-left: 40%;
+    cursor: pointer;
+}
+.cloud-label{
+    padding: 10px 20px;
+    color: white ;
+    border: none;
+    background-color: rgb(255, 0, 136);
+    font-size: 1.0rem;
+    font-weight:bold ;
+    border-radius: 35px;
+    cursor: pointer;
+
+}
