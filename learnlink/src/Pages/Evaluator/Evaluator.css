@@ -5,6 +5,7 @@
     align-items: center;
     padding-top:50px ;
     padding-bottom: 20px;
+    height: fit-content;
 }
 .evaluator-heading{
     text-align: center;

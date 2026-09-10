@@ -10,6 +10,8 @@ export const DataProvider = ({ children }) => {
  const [Classroom,setClassroom] = useState([]);
   const { getToken } = useAuth(); 
 const[showupload,setshowupload] = useState(false);
+const [classList,setclassList] = useState([]);
+
  
  const fetchClassroom = async() => {
   try{
@@ -33,9 +35,23 @@ const[showupload,setshowupload] = useState(false);
     console.log(error);
   }
  }
+
+ const allClassroom  = async() => {
+    try{
+      const response = await axios.get(
+        "http://localhost:4000/api/all"
+      );
+      if(response.data.success){
+        setclassList(response.data.data);
+      }
+    }
+    catch(error){
+      console.log(error);
+    }
+  }
   
   return (
-    <DataContext.Provider value={{fetchClassroom,loader,Classroom,setloader,setshowupload,showupload}}>
+    <DataContext.Provider value={{fetchClassroom,loader,Classroom,setloader,setshowupload,showupload,allClassroom,classList}}>
       {children}
     </DataContext.Provider>
   );

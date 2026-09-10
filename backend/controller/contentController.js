@@ -1,6 +1,7 @@
 import { contentModel } from "../model/contentModel.js";
 import OpenAI from "openai";
 import dotenv from "dotenv";
+import { userModel } from "../model/userModel.js";
 dotenv.config();
 
 
@@ -33,6 +34,18 @@ const fetchAssignment = async(req,res)=> {
         res.json({success:false,message:"Error"});
     }
 }
+const fetchLearningPlan = async(req,res)=> {
+    try{
+        const {documentId} = req.body;
+        const contentDocument = await contentModel.findOne({documentId});
+        const learningPlan = contentDocument.content.learningPlan;
+        res.json({success:true,data:learningPlan});
+    }
+    catch(error){
+        res.json({success:false,message:"Error"});
+    }
+}
+
 const fetchImportant = async(req,res)=> {
     try{
         const {documentId} = req.body;
@@ -42,6 +55,22 @@ const fetchImportant = async(req,res)=> {
     }
     catch(error){
         res.json({success:false,message:"Error"});
+    }
+}
+
+const updateLastScore = async(req,res) => {
+    try{
+         const userId = req.auth.userId;
+         const {score,total} = req.body;
+         const lastScore = score.toString();
+         const lastTotal = total.toString();
+         await userModel.findOneAndUpdate({userId},{lastScore:lastScore+"/"+lastTotal});
+         res.json({success:true,message:"Score Updated"})
+
+    }
+    catch(error){
+        console.log(error);
+        res.json({success:false,message:"Error"})
     }
 }
 
@@ -217,4 +246,4 @@ if the answer is not relevant answer say it's is not relevant to the document.
 
 
 
-export {fetchFlashcard,fetchAssignment,fetchImportant,assistantResponse,assistantEvaluator}
+export {fetchFlashcard,fetchAssignment,fetchImportant,assistantResponse,assistantEvaluator,fetchLearningPlan,updateLastScore}

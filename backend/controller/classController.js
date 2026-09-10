@@ -72,24 +72,39 @@ const addDocument = async(req,res) => {
 
         });
             
-        const prompt = `You are an AI that generates study materials.
+        const prompt = `You are an AI that generates personalized study materials and a learning plan from the given document.
 
-From the given document text, generate:
+From the document text, generate:
 
 1. Flashcards
 2. Quiz (MCQs with 4 options and correct answer index)
 3. Important Questions
+4. Learning Plan
 
 STRICT RULES:
 - Output ONLY valid JSON
-- Do NOT include explanations or extra text
+- Do NOT include explanations or extra text outside the JSON
+- Generate all content ONLY from the given document
+- Do NOT invent information that is not present in the document
 - Each quiz must have exactly 4 options
 - correctAnswer MUST be the index (0,1,2,3)
-- Ensure the index matches the correct option
+- Ensure the correctAnswer index matches the correct option
+- The learning plan must be organized in a logical study order
+- The learning plan should help a student learn the document step-by-step
+- Keep the learning plan simple and practical
+- Each learning step must contain a topic, objective, and activity
+- Do not make the learning plan unnecessarily long
 
 JSON FORMAT:
+
 {
-  "flashcards": [{"question": "", "answer": ""}],
+  "flashcards": [
+    {
+      "question": "",
+      "answer": ""
+    }
+  ],
+
   "quiz": [
     {
       "question": "",
@@ -97,13 +112,48 @@ JSON FORMAT:
       "correctAnswer": 0
     }
   ],
-  "importantQuestions": [{"question": ""}]
+
+  "importantQuestions": [
+    {
+      "question": ""
+    }
+  ],
+
+  "learningPlan": [
+    {
+      "step": 1,
+      "topic": "",
+      "objective": "",
+      "activity": ""
+    }
+  ]
 }
+
+LEARNING PLAN REQUIREMENTS:
+
+The learningPlan should follow this general structure:
+
+Step 1:
+Start with the basic concepts and introduction of the document.
+
+Step 2:
+Study the important concepts and definitions.
+
+Step 3:
+Study the deeper concepts, processes, or relationships between topics.
+
+Step 4:
+Practice understanding using examples, questions, or applications from the document.
+
+Step 5:
+Review the complete topic using the important questions and flashcards.
+
+If the document contains fewer or more major topics, adjust the number of steps accordingly.
 
 DOCUMENT:
 """
 ${pdfData.text}
-"""`
+"""`;
             const response = await openai.chat.completions.create({
             model: "gemini-3-flash-preview",
             messages: [

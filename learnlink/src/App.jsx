@@ -15,6 +15,8 @@ import Assignment from './Pages/Assignment/Assignment.jsx';
 import Important from './Pages/Important/Important.jsx';
 import Assistant from './Pages/Assistant/Assistant.jsx';
 import Evaluator from './Pages/Evaluator/Evaluator.jsx';
+import StudentDocument from  './Pages/StudentDocument/StudentDocument.jsx';
+import LearningPlan from './Pages/LearningPlan/LearningPlan.jsx';
 
 
 
@@ -38,6 +40,8 @@ const App = () => {
           <Route path='/content/important/:documentId' element={<Important/>} />
           <Route path='/content/assistant/:documentId' element={<Assistant/>} />
           <Route path='/content/evaluator/:documentId' element={<Evaluator/>} />
+          <Route path='/content/learningplan/:documentId' element={<LearningPlan/>} />
+          <Route path='/stud-documents/:id' element={<StudentDocument/>} />
           
           
         </Routes>

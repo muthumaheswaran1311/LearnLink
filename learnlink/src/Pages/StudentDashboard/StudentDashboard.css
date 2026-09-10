@@ -27,3 +27,19 @@
 .student-feature p{
     font-size: 20px;
 }
+.input-tag{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+.input-tag label{
+    color: rgb(255, 0, 136) ;
+    font-size: 1.5rem;
+}
+.input-tag input{
+    outline:none;
+    border:2px rgb(255, 0, 136) solid;
+    width: 20%;
+    height: 25px; 
+}

@@ -38,6 +38,10 @@ const ContentDashboard = () => {
             <h2>AI Evaluator</h2>
             <p>Teachers can evaluate the answers they have.</p>
         </div>
+        <div className='content-feature' style={{backgroundColor:"red"}} onClick={()=>{navigate(`/content/learningplan/${documentId}`)}} >
+            <h2>Learning Plans</h2>
+            <p>Learning plans for the uploaded document is available here.</p>
+        </div>
       </div>
     </div>
   )

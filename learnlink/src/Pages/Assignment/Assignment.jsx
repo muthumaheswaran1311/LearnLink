@@ -5,11 +5,47 @@ import "react-toastify/dist/ReactToastify.css";
 import { useParams } from "react-router-dom";
 import { DataContext } from "../dataContext.jsx";
 import axios from "axios";
+import { useAuth } from "@clerk/clerk-react";
 
 const Assignment = () => {
   const [quiz,setquiz] = useState([]);
   const {documentId} = useParams();
   const {loader,setloader} = useContext(DataContext);
+  const {getToken} = useAuth();
+
+  const updateLastScore = async () => {
+      try {
+        const total = quiz.length;
+  
+      
+  
+        const token = await getToken();
+  
+        const response = await axios.post(
+          "http://localhost:4000/api/updatescore",
+          { score ,total},
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+  
+        console.log(token);
+  
+        if (response.data.success) {
+           toast.success(`You passed! Score: ${score}/${total} 🎉`);
+        }
+
+        if (score < total / 2) {
+      toast.error("Marks not enough 😢");
+    } 
+  
+      } catch (error) {
+        console.log(error);
+      }
+    };
+  
 
   const fetchAssignment = async() => {
   try{
@@ -99,7 +135,7 @@ const Assignment = () => {
         </div>
       ))}
 
-      <button className="submit-btn" onClick={handleSubmit}>
+      <button className="submit-btn" onClick={updateLastScore}>
         Submit
       </button>
       <ToastContainer />

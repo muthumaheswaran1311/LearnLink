@@ -3,35 +3,28 @@ import { DataContext } from '../dataContext.jsx'
 import loadersvg from "/src/assets/loader.svg"
 import { useEffect } from 'react';
 import Navbar from '../../components/Navbar/Navbar.jsx';
-import "./Classroom.css"
+import "./StudentDashboard.css"
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { ToastContainer, toast } from "react-toastify";
 import axios from 'axios';
 
 const StudentDashboard = () => {
 
-  const {loader,Classroom} = useContext(DataContext);
+  const {loader,Classroom,sselectedclass,allClassroom,classList} = useContext(DataContext);
   const navigate = useNavigate();
-  const [classList,setclassList] = useState([]);
+  const [search,setsearch] = useState("");
   const [filteredClass,setfilteredClass] = useState(classList);
-
-  const allClassroom  = async(id) => {
-    try{
-      const response = await axios.get(
-        "http://localhost:4000/api/all"
-      );
-      if(response.data.success){
-        setclassList(response.data.data);
-      }
-    }
-    catch(error){
-      console.log(error);
-    }
-  }
+ 
   
   useEffect(()=>{
     allClassroom();
-  },[]);
+     if(search){
+    setfilteredClass(classList.filter((item)=>(item._id.includes(search))));
+  }
+  else{
+    setfilteredClass(classList);
+  }
+  },[search,classList]);
 
 
 
@@ -39,9 +32,10 @@ const StudentDashboard = () => {
     <div>
        <Navbar/>
        {!loader ? <div>
-          <h1 className='classroom-heading'>My Classroom</h1>
-          <div>
-            <input type='text'  />
+          <h1 className='classroom-heading'>Classrooms</h1>
+          <div className='input-tag'>
+            <label>Enter Classroom Id:</label>
+            <input type='text' onChange={(e)=>{setsearch(e.target.value);}} />
           </div>
           <div className='classroom-list' > 
             {filteredClass?.map((item,index)=>(
@@ -51,7 +45,7 @@ const StudentDashboard = () => {
                   <p><b>Mentor name:</b> {item.mentorName}</p>
                   <p><b>Course name:</b> {item.courseName}</p>
                   <p><b>Duration:</b> {item.courseDuration}</p>
-                  <button onClick={()=>{navigate(`/documents/${item._id}`)}} style={{marginLeft:"10px"}} >View Documents</button>
+                  <button onClick={()=>{navigate(`/stud-documents/${item._id}`)}} style={{marginLeft:"10px"}} >View Documents</button>
               </div>
             ))}
           </div>

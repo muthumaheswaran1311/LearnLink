@@ -25,10 +25,7 @@ const TeacherDashboard = () => {
             <h2>My Classroom</h2>
             <p>Teacher can view how many classes they are maintaining.</p>
         </div>
-        <div className='teacher-feature' style={{backgroundColor:"green"}}  >
-            <h2>My Documents</h2>
-            <p>Teachers can manage their documents used for the courses here.</p>
-        </div>
+       
       </div>
     </div>
   )

@@ -1,0 +1,58 @@
+.classroom-heading{
+    text-align: center;
+    font-size: 2.5rem;
+    color:rgb(255, 0, 136);
+    margin-top: 15px;
+}
+.upload-document-button{
+    padding: 10px 15px;
+    color: white ;
+    border: none;
+    background-color: blue;
+    font-size: 1.0rem;
+    font-weight:bold ;
+    border-radius: 35px;
+    margin-left: 45%;
+    cursor: pointer;
+    margin-top: 30px;
+    margin-left: 82%;
+}
+.choice{
+    color: rgb(255, 0, 136) ;
+    margin-left: 42%;
+    margin-top: 35px;
+    font-size: 25px;
+}
+.document-list{
+    display: flex;
+    gap: 10px;
+    margin: 1% 2%;
+    flex-wrap: wrap;
+}
+.document-card{
+    background-color:rgb(255, 0, 136) ;
+    padding: 20px;
+    width: 300px;
+    border-radius:20px ;
+    color: white;
+    cursor: pointer;
+    transition-duration: 0.5s;
+}
+
+.document-card:hover{
+    transform: translateY(-15px);
+}
+
+.document-card h1{
+    text-align: center;
+}
+.document-card button{
+    padding: 10px 15px;
+    color: rgb(0, 0, 0) ;
+    border: none;
+    background-color: rgb(247, 247, 247);
+    font-size: 1.0rem;
+    font-weight:bold ;
+    border-radius: 35px;
+    cursor: pointer;
+}

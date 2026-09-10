@@ -26,14 +26,31 @@ const setRole = async(req,res) => {
             return res.json({success:false,message:"User Already exists"});
         }
 
-        const newUser = new userModel({
+        if(role === "teacher"){
+             const newUser = new userModel({
             userId :userId,
             name:name,
             email:email,
-            role:role
+            role:role,
+            lastScore:"0"
         })
-
         await newUser.save();
+        }
+
+        else{
+             const newUser = new userModel({
+            userId :userId,
+            name:name,
+            email:email,
+            role:role,
+            lastScore:"0"
+        })
+        await newUser.save();
+        }
+
+       
+
+        
         res.json({success:true,message:"Registered Successfully"});
     }   
     catch(error){
